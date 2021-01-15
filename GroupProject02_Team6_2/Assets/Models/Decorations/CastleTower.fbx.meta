@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: MainBrick
     second: {fileID: 2100000, guid: f255c425e96176847a1b9c799f128ec7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RamyOkien
+    second: {fileID: 2100000, guid: f5436775f30abc84f92a598b7ab74174, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
