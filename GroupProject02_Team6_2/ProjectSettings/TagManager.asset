@@ -4,8 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Floor
   - Platform_Standard
+=======
+  - Faller
+  - Speed
+  - Sponge
+  - Wall_right
+  - Wall_left
+>>>>>>> michalBrunch
   layers:
   - Default
   - TransparentFX
