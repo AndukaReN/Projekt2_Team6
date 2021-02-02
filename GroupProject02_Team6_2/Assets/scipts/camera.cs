@@ -36,10 +36,10 @@ public class camera : MonoBehaviour
     private void Update()
     {
         PlaningCamera();
-        /*
-        if( tu dać zmienną od postaci = true )
+
+        if( PlayerMovement.move == true )
         {
-          ActionCamera();
+            ActionCamera();
         }
         else
         {
@@ -53,19 +53,19 @@ public class camera : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
+        if (Input.GetKey("w")  ||  Input.mousePosition.y >= Screen.height - panBorderThickness  ) 
         {
             pos.y += panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
+        if (Input.GetKey("s")  || Input.mousePosition.y <= panBorderThickness  )
         {
             pos.y -= panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
+        if (Input.GetKey("d")  || Input.mousePosition.x >= Screen.width - panBorderThickness  )
         {
             pos.x += panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
+        if (Input.GetKey("a")  || Input.mousePosition.x <= panBorderThickness  )
         {
             pos.x -= panSpeed * Time.deltaTime;
         }
@@ -73,10 +73,13 @@ public class camera : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         pos.z += scroll * scrollSpeed * Time.deltaTime * 100f;
 
-
-        pos.x = Mathf.Clamp(pos.x, xMin, xMax);
-        pos.y = Mathf.Clamp(pos.y, yMin, yMax);
-        pos.z = Mathf.Clamp(pos.z, zMin, zMax);
+        //if (PlayerMovement.move == false)
+        
+            pos.x = Mathf.Clamp(pos.x, xMin, xMax);
+            pos.y = Mathf.Clamp(pos.y, yMin, yMax);
+            pos.z = Mathf.Clamp(pos.z, zMin, zMax);
+        
+       
 
 
         transform.position = pos;
