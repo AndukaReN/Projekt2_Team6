@@ -18,4 +18,13 @@ public class simpledeath : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "killer")
+        {
+            Debug.Log("kill");
+            isDead = true;
+        }
+    }
+
 }

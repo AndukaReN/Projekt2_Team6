@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     protected float movement_speed = 2;
     protected bool facingright;
     public static float direction = 0.5f;
-    float turn = -1;
     public float pushBack = -250;
 
     public bool move_right = true;
@@ -28,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
     public float czasSpeeda = 1.5f;
     public float wysokoscSponga = 350;
 
-
-    int collsiion_counter = 0;
 
 
 

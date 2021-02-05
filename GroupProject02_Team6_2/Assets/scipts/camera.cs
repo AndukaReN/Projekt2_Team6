@@ -19,25 +19,23 @@ public class camera : MonoBehaviour
     public Vector3 offset;
 
     [SerializeField]
-    private float xMin;
+    private float xMax = 0;
     [SerializeField]
-    private float xMax;
+    private float xMin = 0;
     [SerializeField]
-    private float yMin;
+    private float yMax = 0;
     [SerializeField]
-    private float yMax;
+    private float yMin = 0;
     [SerializeField]
-    private float zMin;
+    private float zMax = 0;
     [SerializeField]
-    private float zMax;
+    private float zMin = 0;
 
 
 
     private void Update()
     {
-        PlaningCamera();
-
-        if( PlayerMovement.move == true )
+        if( start_button.move == true )
         {
             ActionCamera();
         }
@@ -45,7 +43,6 @@ public class camera : MonoBehaviour
         {
             PlaningCamera();
         }
-        //*/
 
     }
 
@@ -53,33 +50,30 @@ public class camera : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        if (Input.GetKey("w")  ||  Input.mousePosition.y >= Screen.height - panBorderThickness  ) 
+        if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
             pos.y += panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey("s")  || Input.mousePosition.y <= panBorderThickness  )
+        if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
         {
             pos.y -= panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey("d")  || Input.mousePosition.x >= Screen.width - panBorderThickness  )
+        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
         {
             pos.x += panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey("a")  || Input.mousePosition.x <= panBorderThickness  )
+        if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
         {
             pos.x -= panSpeed * Time.deltaTime;
         }
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        pos.z += scroll * scrollSpeed * Time.deltaTime * 100f;
+        pos.z += scroll * scrollSpeed * Time.deltaTime * 10f;
 
-        //if (PlayerMovement.move == false)
-        
-            pos.x = Mathf.Clamp(pos.x, xMin, xMax);
-            pos.y = Mathf.Clamp(pos.y, yMin, yMax);
-            pos.z = Mathf.Clamp(pos.z, zMin, zMax);
-        
-       
+
+        pos.x = Mathf.Clamp(pos.x, xMin, xMax);
+        pos.y = Mathf.Clamp(pos.y, yMin, yMax);
+        pos.z = Mathf.Clamp(pos.z, zMin, zMax);
 
 
         transform.position = pos;

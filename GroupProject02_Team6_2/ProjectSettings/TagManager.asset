@@ -9,6 +9,8 @@ TagManager:
   - Sponge
   - Wall_right
   - Wall_left
+  - killer
+  - LVLnext
   layers:
   - Default
   - TransparentFX
